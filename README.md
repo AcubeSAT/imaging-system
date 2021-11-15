@@ -21,8 +21,8 @@ The imaging system is designed to function as a single-channel miniaturized fluo
 
 High-level ray diagram:
 
-![](Ray-diagram.png)
+![](Optics_pathway.pdf)
 
 A technical drawing of the imaging system depicting the relevant optical distances:
 
-![](Imaging-system.png)
+![](imaging_schematic.pdf)
