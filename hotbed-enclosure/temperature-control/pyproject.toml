@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "temperature-control"
+version = "0.1.0"
+description = ""
+authors = ["Orestis Ousoultzoglou <orousoultzoglou@gmail.com>"]
+readme = "README.md"
+packages = [{include = "temperature_control"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
