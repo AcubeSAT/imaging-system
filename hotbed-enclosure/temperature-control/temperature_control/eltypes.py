@@ -6,3 +6,6 @@ config = dict
 config_model = Config
 
 log_data = DataFrame
+
+csv_format = str
+markdown_format = str
