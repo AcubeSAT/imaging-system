@@ -36,4 +36,9 @@ if __name__ == "__main__":
     window.show()
     logging.info("Window rendered successfully.")
 
-    exit(app.exec())
+    EXIT_CODE = app.exec()
+
+    close_msg = "App exited successfully." if not EXIT_CODE else "App crashed."
+    logging.info(close_msg)
+
+    exit(EXIT_CODE)
