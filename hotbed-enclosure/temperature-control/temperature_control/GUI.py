@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from PySide6.QtWidgets import (
     QMainWindow, QGroupBox, QHBoxLayout, QPushButton, QLabel, QVBoxLayout,
     QWidget, QFileDialog
@@ -45,7 +47,8 @@ class TempLogUtilsGUI(QMainWindow):
 
         if dialog.exec():
             filename = dialog.selectedFiles()[0]
+            filename = Path(filename)
 
             self.selected_file_path.setText(
-                self.tr(f"Selected File: {filename}")
+                self.tr(f"Selected File: {filename.name}")
             )
