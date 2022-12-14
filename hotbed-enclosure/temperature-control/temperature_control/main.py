@@ -18,6 +18,11 @@ if __name__ == "__main__":
     RELATIVE_PATHS = True
 
     CONFIG = read_config(get_path("config", RELATIVE_PATHS))
+    if not CONFIG:
+        logging.error("Loading the configuration file failed.")
+        exit(1)
+    logging.info("Configuration file loaded successfully.")
+
     WINDOW_CONFIG = CONFIG.window
 
     app = QApplication([])
