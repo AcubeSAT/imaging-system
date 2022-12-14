@@ -2,6 +2,13 @@ import logging
 from sys import exit
 
 from PySide6.QtWidgets import QApplication
+# Yes, tabulate is unused here.
+# However, it's an optional dependency of pandas
+# needed to convert a DataFrame to a markdown table
+# and I didn't find any other way to tell pyinstaller
+# that it has to bundle tabulate too.
+# So keep this line.
+import tabulate
 
 from GUI import TempLogUtilsGUI
 from IOUtils import read_config
