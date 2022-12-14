@@ -14,6 +14,8 @@ Here's some code to help automate the following:
 - generation of useful formats out of experimental raw data (CSV for programmatic work, Markdown for quick inspection, plots)
 - proper data indexing/organization
 
+You can get a bundle for your OS from the [releases](https://github.com/AcubeSAT/imaging-system/releases/tag/v0.1.0-alpha) page.
+
 ## Table of Contents
 
 <details>
