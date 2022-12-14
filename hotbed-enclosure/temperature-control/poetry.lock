@@ -115,7 +115,7 @@ name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
 category = "main"
-optional = false
+optional = true
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
@@ -127,13 +127,13 @@ optional = true
 python-versions = "*"
 
 [extras]
-format = ["yapf"]
+format = ["yapf", "toml"]
 test = ["pytest"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.11"
-content-hash = "c088d0b2cfcb40b3260d408b711a94eaf1f57566f8fb8e018870b23233a6d271"
+content-hash = "2e0b9375ae66d8b1fca419c9148c9352cfb289c9366902ed448eb23bdb434354"
 
 [metadata.files]
 attrs = [
