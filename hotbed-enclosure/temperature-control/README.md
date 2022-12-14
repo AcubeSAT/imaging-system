@@ -37,7 +37,7 @@ Here's some code to help automate the following:
 
 A cross-platform GUI bundled as an executable to help quickly generate raw data captured by a DHT temperature/humidity ambient sensor.
 
-![Example screenshot](hotbed-enclosure/temperature-control/assets/screenshot.png)
+![Example screenshot](https://github.com/AcubeSAT/imaging-system/blob/main/hotbed-enclosure/temperature-control/assets/screenshot.png)
 
 1. Click on `Browse`
 2. Load the data
