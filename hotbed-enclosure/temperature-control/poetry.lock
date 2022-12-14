@@ -385,7 +385,7 @@ test = ["pytest"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.11"
-content-hash = "9a4338cf2d0a487d3f6ce93cf300c9ff1e7f61ed2aeb5996c24cf79c0268b6a0"
+content-hash = "b5c876acf48fc560dc8d72d079b39de4d84ce5d232446d83e79de13015cc62f4"
 
 [metadata.files]
 attrs = [
