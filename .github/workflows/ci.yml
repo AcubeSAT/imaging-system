@@ -61,7 +61,6 @@ jobs:
             sed -i 's/datas=\[]/datas=added_files/' main.spec
           fi
           pyinstaller main.spec
-          pyinstaller temperature_control/main.py
       - name: Archive binary artifacts
         uses: actions/upload-artifact@v3
         with:
