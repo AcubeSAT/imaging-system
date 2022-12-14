@@ -96,7 +96,9 @@ class TempLogUtilsGUI(QMainWindow):
 
         source = self.selected_file.name
 
-        target = get_path("logs", self.relative_paths) / source
+        target = get_path("logs", self.relative_paths)
+        target = Path(target)
+        target = target / source
         target.mkdir(parents=True, exist_ok=True)
 
         filename = target / "data"
