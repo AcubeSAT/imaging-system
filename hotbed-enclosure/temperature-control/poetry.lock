@@ -64,6 +64,14 @@ dotenv = ["python-dotenv (>=0.10.4)"]
 email = ["email-validator (>=1.0.3)"]
 
 [[package]]
+name = "pyprojroot"
+version = "0.2.0"
+description = "Find project root paths and return relative project files"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyside6"
 version = "6.4.1"
 description = "Python bindings for the Qt cross-platform application and UI framework"
@@ -156,7 +164,7 @@ test = ["pytest"]
 [metadata]
 lock-version = "1.1"
 python-versions = "~3.11"
-content-hash = "9da2b62786f66502d2878cedae6ac150cfc9c5cd5b6033e59a5fc0079e4092a5"
+content-hash = "23184da555c489c948a67ad512fac9ed797db7dfee4bab76277ddf3ee5e1ddbe"
 
 [metadata.files]
 attrs = [
@@ -216,6 +224,10 @@ pydantic = [
     {file = "pydantic-1.10.2-cp39-cp39-win_amd64.whl", hash = "sha256:c1ba1afb396148bbc70e9eaa8c06c1716fdddabaf86e7027c5988bae2a829ab6"},
     {file = "pydantic-1.10.2-py3-none-any.whl", hash = "sha256:1b6ee725bd6e83ec78b1aa32c5b1fa67a3a65badddde3976bca5fe4568f27709"},
     {file = "pydantic-1.10.2.tar.gz", hash = "sha256:91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410"},
+]
+pyprojroot = [
+    {file = "pyprojroot-0.2.0-py3-none-any.whl", hash = "sha256:741e8b4878a0d6bb6b06ec09aa05797130289e2127aa595b8f1cbadce697909f"},
+    {file = "pyprojroot-0.2.0.tar.gz", hash = "sha256:a79900dc52ee097bfd8d917a3d45e2b98494c47a57ba3a71bf609d7a156732e8"},
 ]
 pyside6 = [
     {file = "PySide6-6.4.1-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:a5e56ce84db3453a1522d7bebaeb161f3c95fd5eeeb159f76e79615294772e8a"},
