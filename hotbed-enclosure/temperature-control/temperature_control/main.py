@@ -22,7 +22,7 @@ if __name__ == "__main__":
     )
     logging.info("Logger initialized.")
 
-    RELATIVE_PATHS = False
+    RELATIVE_PATHS = True
 
     CONFIG = read_config(get_path("config", RELATIVE_PATHS))
     if not CONFIG:
