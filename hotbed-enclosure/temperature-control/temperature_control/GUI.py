@@ -5,6 +5,8 @@ from PySide6.QtWidgets import (
     QWidget, QFileDialog
 )
 
+from IOUtils import read_file
+
 
 class TempLogUtilsGUI(QMainWindow):
     def __init__(self):
@@ -29,6 +31,8 @@ class TempLogUtilsGUI(QMainWindow):
         dummy_widget.setLayout(main_layout)
         self.setCentralWidget(dummy_widget)
 
+        self.data = None
+
     def _create_io_group_box(self) -> None:
         self._io_group_box = QGroupBox(self.tr("IO"))
         layout = QHBoxLayout()
@@ -52,3 +56,5 @@ class TempLogUtilsGUI(QMainWindow):
             self.selected_file_path.setText(
                 self.tr(f"Selected File: {filename.name}")
             )
+
+            self.data = read_file(filename)
