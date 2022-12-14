@@ -30,9 +30,14 @@ def read_config(filename: Path) -> config_model:
     return Config.parse_obj(conf_from_file)
 
 
-def _data_to_markdown(data: DataFrame) -> markdown_format:
+def data_to_markdown(data: DataFrame) -> markdown_format:
     return data.to_markdown(index=False, numalign="left")
 
 
-def _data_to_csv(data: DataFrame) -> csv_format:
-    return data.to_csv(index=False)
+def data_to_csv(data: DataFrame) -> csv_format:
+    return data.to_csv(index=False, lineterminator='\n')
+
+
+def write_to_file(data: str, filename: Path) -> None:
+    with open(filename, 'w') as fp:
+        fp.write(data)

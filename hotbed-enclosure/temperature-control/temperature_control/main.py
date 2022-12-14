@@ -15,7 +15,7 @@ if __name__ == "__main__":
     )
     logging.info("Logger initialized.")
 
-    RELATIVE_PATHS = True
+    RELATIVE_PATHS = False
 
     CONFIG = read_config(get_path("config", RELATIVE_PATHS))
     if not CONFIG:
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     app = QApplication([])
 
     logging.info("Starting main window.")
-    window = TempLogUtilsGUI()
+    window = TempLogUtilsGUI(RELATIVE_PATHS)
     window.resize(
         WINDOW_CONFIG["dimension"]["width"],
         WINDOW_CONFIG["dimension"]["height"]

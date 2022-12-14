@@ -2,7 +2,7 @@ from pathlib import Path
 
 from pyprojroot import here
 
-_PATHS = {"config": "temperature_control/config.toml"}
+_PATHS = {"config": "temperature_control/config.toml", "logs": "logs/"}
 
 
 def get_path(name: str, relative: bool) -> Path:

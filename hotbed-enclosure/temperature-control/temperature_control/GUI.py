@@ -5,12 +5,15 @@ from PySide6.QtWidgets import (
     QWidget, QFileDialog, QPlainTextEdit
 )
 
-from IOUtils import read_file
+from IOUtils import data_to_markdown, data_to_csv, read_file, write_to_file
+from paths import get_path
 
 
 class TempLogUtilsGUI(QMainWindow):
-    def __init__(self):
+    def __init__(self, relative_paths: bool):
         super().__init__()
+
+        self.relative_paths = relative_paths
 
         self._init_ui()
 
@@ -35,6 +38,7 @@ class TempLogUtilsGUI(QMainWindow):
         dummy_widget.setLayout(main_layout)
         self.setCentralWidget(dummy_widget)
 
+        self.selected_file = None
         self.data = None
 
     def _create_io_group_box(self) -> None:
@@ -44,7 +48,11 @@ class TempLogUtilsGUI(QMainWindow):
         browse_button = QPushButton(self.tr("Browse"))
         browse_button.clicked.connect(self._browse_file)
 
+        export_button = QPushButton(self.tr("Export"))
+        export_button.clicked.connect(self._export_file)
+
         layout.addWidget(browse_button)
+        layout.addWidget(export_button)
 
         self._io_group_box.setLayout(layout)
 
@@ -61,9 +69,28 @@ class TempLogUtilsGUI(QMainWindow):
                 self.tr(f"Selected File: {filename.name}")
             )
 
+            self.selected_file = filename
             self.data = read_file(filename)
 
             self._update_data_viewer()
+
+    def _export_file(self) -> None:
+        def _export_data_kind(data_type: str, filename: Path) -> None:
+            filename = filename.with_suffix(data_type)
+            data = data_to_csv(
+                self.data
+            ) if data_type == ".csv" else data_to_markdown(self.data)
+
+            write_to_file(data, filename)
+
+        if self.data is None:
+            return None
+
+        for extension in (".csv", ".md"):
+            filename = get_path(
+                "logs", self.relative_paths
+            ) / self.selected_file.name
+            _export_data_kind(extension, filename)
 
     def _update_data_viewer(self) -> None:
         if self.data is not None:
