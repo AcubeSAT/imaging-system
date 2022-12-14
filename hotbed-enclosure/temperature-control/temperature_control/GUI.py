@@ -2,7 +2,7 @@ from pathlib import Path
 
 from PySide6.QtWidgets import (
     QMainWindow, QGroupBox, QHBoxLayout, QPushButton, QLabel, QVBoxLayout,
-    QWidget, QFileDialog
+    QWidget, QFileDialog, QPlainTextEdit
 )
 
 from IOUtils import read_file
@@ -19,9 +19,13 @@ class TempLogUtilsGUI(QMainWindow):
 
         self.selected_file_path = QLabel(self.tr("Selected file: "))
 
+        self.data_viewer = QPlainTextEdit()
+        self.data_viewer.setReadOnly(True)
+
         main_layout = QVBoxLayout()
         main_layout.addWidget(self._io_group_box)
         main_layout.addWidget(self.selected_file_path)
+        main_layout.addWidget(self.data_viewer)
         self.setLayout(main_layout)
 
         self.setWindowTitle(self.tr("Temperature Logging Utilities"))
@@ -58,3 +62,9 @@ class TempLogUtilsGUI(QMainWindow):
             )
 
             self.data = read_file(filename)
+
+            self._update_data_viewer()
+
+    def _update_data_viewer(self) -> None:
+        if self.data is not None:
+            self.data_viewer.setPlainText(self.data.to_string(index=False))
