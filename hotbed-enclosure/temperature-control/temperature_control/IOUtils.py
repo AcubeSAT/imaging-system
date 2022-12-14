@@ -12,7 +12,11 @@ def _read_csv(filename: Path) -> DataFrame:
 
 
 def read_file(filename: Path) -> log_data:
-    return _read_csv(filename)
+    DATA_HEADER = ["Reading", "Temperature", "Humidity"]
+
+    df = _read_csv(filename)
+    df.columns = DATA_HEADER
+    return df
 
 
 def _read_toml(filename: Path) -> config:
