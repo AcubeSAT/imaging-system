@@ -20,6 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash # For sane consistent scripting throughout.
+        working-directory: ./hotbed-enclosure/temperature-control
     runs-on: ${{ matrix.os }} # For each OS:
     steps:
       - name: Check out repository
