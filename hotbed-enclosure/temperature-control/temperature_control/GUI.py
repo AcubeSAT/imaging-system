@@ -92,17 +92,18 @@ class TempLogUtilsGUI(QMainWindow):
         if self.data is None:
             return None
 
-        filename = get_path(
-            "logs", self.relative_paths
-        ) / self.selected_file.name
+        source = self.selected_file.name
 
+        target = get_path("logs", self.relative_paths) / source
+        target.mkdir(parents=True, exist_ok=True)
+
+        filename = target / "data"
         for extension in (".csv", ".md"):
             _export_data_kind(extension, filename)
 
-        filename = filename.with_suffix(".png")
-        plot(self.data, filename)
+        plot(self.data, filename.with_suffix(".png"))
 
-        logging.info(f"Exported from file {filename.name} successfully.")
+        logging.info(f"Exported from file {source} successfully.")
 
     def _update_data_viewer(self) -> None:
         if self.data is not None:
