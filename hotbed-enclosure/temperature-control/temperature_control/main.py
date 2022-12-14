@@ -27,11 +27,13 @@ if __name__ == "__main__":
 
     app = QApplication([])
 
+    logging.info("Starting main window.")
     window = TempLogUtilsGUI()
     window.resize(
         WINDOW_CONFIG["dimension"]["width"],
         WINDOW_CONFIG["dimension"]["height"]
     )
     window.show()
+    logging.info("Window rendered successfully.")
 
     exit(app.exec())
