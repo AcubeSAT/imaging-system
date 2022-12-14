@@ -38,6 +38,7 @@ You can get a bundle for your OS from the [releases](https://github.com/AcubeSAT
 ### Description
 
 A cross-platform GUI bundled as an executable to help quickly generate raw data captured by a DHT temperature/humidity ambient sensor.
+You can grab the executable from https://github.com/AcubeSAT/imaging-system/releases/.
 
 ![Example screenshot](https://github.com/AcubeSAT/imaging-system/blob/main/hotbed-enclosure/temperature-control/assets/screenshot.png)
 
@@ -342,7 +343,9 @@ class TempLogUtilsGUI(QMainWindow):
 
         source = self.selected_file.name
 
-        target = get_path("logs", self.relative_paths) / source
+        target = get_path("logs", self.relative_paths)
+        target = Path(target)
+        target = target / source
         target.mkdir(parents=True, exist_ok=True)
 
         filename = target / "data"
