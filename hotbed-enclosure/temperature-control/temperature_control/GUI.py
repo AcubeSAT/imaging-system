@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 
 from PySide6.QtWidgets import (
@@ -41,6 +42,8 @@ class TempLogUtilsGUI(QMainWindow):
         self.selected_file = None
         self.data = None
 
+        logging.info("UI initialized successfully.")
+
     def _create_io_group_box(self) -> None:
         self._io_group_box = QGroupBox(self.tr("IO"))
         layout = QHBoxLayout()
@@ -74,6 +77,8 @@ class TempLogUtilsGUI(QMainWindow):
 
             self._update_data_viewer()
 
+            logging.info(f"Loaded file {filename.name} successfully.")
+
     def _export_file(self) -> None:
         def _export_data_kind(data_type: str, filename: Path) -> None:
             filename = filename.with_suffix(data_type)
@@ -90,7 +95,9 @@ class TempLogUtilsGUI(QMainWindow):
             filename = get_path(
                 "logs", self.relative_paths
             ) / self.selected_file.name
+
             _export_data_kind(extension, filename)
+            logging.info(f"Exported from file {filename.name} successfully.")
 
     def _update_data_viewer(self) -> None:
         if self.data is not None:
