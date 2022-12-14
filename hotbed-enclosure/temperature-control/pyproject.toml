@@ -13,6 +13,7 @@ pytest = { version = "^7.2.0", optional = true }
 yapf = { version = "^0.32.0", optional = true }
 pyside6 = "^6.4.1"
 toml = { version = "^0.10.2", optional = true }
+pydantic = "^1.10.2"
 
 [tool.poetry.extras]
 format = ["yapf", "toml"]
