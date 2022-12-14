@@ -17,6 +17,7 @@ pydantic = "^1.10.2"
 pyprojroot = "^0.2.0"
 pandas = "^1.5.2"
 tabulate = "^0.9.0"
+seaborn = "^0.12.1"
 
 [tool.poetry.extras]
 format = ["yapf", "toml"]
