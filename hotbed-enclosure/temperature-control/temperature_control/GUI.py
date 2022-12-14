@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (
 
 from IOUtils import data_to_markdown, data_to_csv, read_file, write_to_file
 from paths import get_path
+from plot import plot
 
 
 class TempLogUtilsGUI(QMainWindow):
@@ -91,13 +92,17 @@ class TempLogUtilsGUI(QMainWindow):
         if self.data is None:
             return None
 
-        for extension in (".csv", ".md"):
-            filename = get_path(
-                "logs", self.relative_paths
-            ) / self.selected_file.name
+        filename = get_path(
+            "logs", self.relative_paths
+        ) / self.selected_file.name
 
+        for extension in (".csv", ".md"):
             _export_data_kind(extension, filename)
-            logging.info(f"Exported from file {filename.name} successfully.")
+
+        filename = filename.with_suffix(".png")
+        plot(self.data, filename)
+
+        logging.info(f"Exported from file {filename.name} successfully.")
 
     def _update_data_viewer(self) -> None:
         if self.data is not None:
