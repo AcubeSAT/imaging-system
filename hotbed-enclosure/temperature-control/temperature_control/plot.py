@@ -3,14 +3,15 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from eltypes import log_data
+from eltypes import log_data, plot_dimensions
 
 
-def plot(data: log_data, filename: Path) -> None:
+def plot(data: log_data, filename: Path, dimensions: plot_dimensions) -> None:
     sns.set_theme("talk", "darkgrid")
     current_palette = sns.color_palette("bright")
 
-    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 7))
+    WIDTH, HEIGHT = dimensions
+    _, (ax1, ax2) = plt.subplots(1, 2, figsize=(WIDTH, HEIGHT))
 
     temperature_series = data.iloc[:, 1]
     humidity_series = data.iloc[:, 2]

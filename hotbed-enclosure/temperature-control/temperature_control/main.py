@@ -31,11 +31,12 @@ if __name__ == "__main__":
     logging.info("Configuration file loaded successfully.")
 
     WINDOW_CONFIG = CONFIG.window
+    PLOT_CONFIG = CONFIG.plot
 
     app = QApplication([])
 
     logging.info("Starting main window.")
-    window = TempLogUtilsGUI(RELATIVE_PATHS)
+    window = TempLogUtilsGUI(PLOT_CONFIG, RELATIVE_PATHS)
     window.resize(
         WINDOW_CONFIG["dimension"]["width"],
         WINDOW_CONFIG["dimension"]["height"]

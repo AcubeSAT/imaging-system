@@ -9,3 +9,5 @@ log_data = DataFrame
 
 csv_format = str
 markdown_format = str
+
+plot_dimensions = tuple[int, int]

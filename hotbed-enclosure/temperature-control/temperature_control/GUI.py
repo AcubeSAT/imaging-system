@@ -6,15 +6,17 @@ from PySide6.QtWidgets import (
     QWidget, QFileDialog, QPlainTextEdit
 )
 
+from eltypes import config
 from IOUtils import data_to_markdown, data_to_csv, read_file, write_to_file
 from paths import get_path
 from plot import plot
 
 
 class TempLogUtilsGUI(QMainWindow):
-    def __init__(self, relative_paths: bool):
+    def __init__(self, plot_config: config, relative_paths: bool):
         super().__init__()
 
+        self.plot_config = plot_config
         self.relative_paths = relative_paths
 
         self._init_ui()
@@ -101,7 +103,11 @@ class TempLogUtilsGUI(QMainWindow):
         for extension in (".csv", ".md"):
             _export_data_kind(extension, filename)
 
-        plot(self.data, filename.with_suffix(".png"))
+        dimensions = (
+            self.plot_config["dimension"]["width"],
+            self.plot_config["dimension"]["height"]
+        )
+        plot(self.data, filename.with_suffix(".png"), dimensions)
 
         logging.info(f"Exported from file {source} successfully.")
 

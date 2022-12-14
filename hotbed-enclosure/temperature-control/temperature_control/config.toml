@@ -3,3 +3,9 @@
     [window.dimension]
     width = 600
     height = 700
+
+[plot]
+
+    [plot.dimension]
+    width = 15
+    height = 7
