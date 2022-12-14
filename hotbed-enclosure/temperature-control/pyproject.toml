@@ -1,13 +1,15 @@
 [tool.poetry]
 name = "temperature-control"
 version = "0.1.0"
-description = ""
+description = "Python utilities to log and index temperature sensor readings."
 authors = ["Orestis Ousoultzoglou <orousoultzoglou@gmail.com>"]
+license = "MIT"
 readme = "README.md"
 packages = [{include = "temperature_control"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+pytest = "^7.2.0"
 
 
 [build-system]
