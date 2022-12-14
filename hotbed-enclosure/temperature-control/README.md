@@ -55,6 +55,9 @@ A cross-platform GUI bundled as an executable to help quickly generate raw data 
 ```graphql
 ./.github/workflows
 └─ ci.yml
+./arduino/
+├─ DHT.h
+└─ temperature-sensor.ino
 ./src/
 ├─ config_model.py
 ├─ config.toml
