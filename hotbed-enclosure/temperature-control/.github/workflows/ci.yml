@@ -43,4 +43,4 @@ jobs:
           path: ${{ matrix.pip-cache-path }}
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
-        run: poetry install --no-interaction --no-root
+        run: poetry install --no-interaction --no-root -E format # https://github.com/python-poetry/poetry/issues/1227
