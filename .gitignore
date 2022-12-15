@@ -35,9 +35,6 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 
-# Data folders
-data/
-
 # Misc
 .DS_Store
 
