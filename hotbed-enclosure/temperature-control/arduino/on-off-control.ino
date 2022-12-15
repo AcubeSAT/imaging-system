@@ -17,8 +17,8 @@ void loop()
   delay(2000);
   float t = dht.readTemperature();
   Serial.print(t);
-  if (t <= 31)
+  if (t <= 30)
     digitalWrite(7, HIGH);
-  if (t > 31)
+  if (t > 30)
     digitalWrite(7, LOW);
 }
